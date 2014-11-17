@@ -57,8 +57,8 @@ function edd_acccount_get_licenses( $payment ) {
 	foreach( (array) $licenses as $item ) {
 		$key       = $licensing->get_license_key( $item->ID );
 		$renew_uri = edd_get_checkout_uri( array(
-			'edd_license_key' => EDD_Software_Licensing::get_license_key( $item->ID ),
-			'download_id'     => EDD_Software_Licensing::get_download_id( $item->ID )
+			'edd_license_key' => $licensing->get_license_key( $item->ID ),
+			'download_id'     => $licensing->get_download_id( $item->ID )
 		) );
 		$expiration = $licensing->get_license_expiration( $item->ID );
 		$expiration = date_i18n( get_option( 'date_format' ), $expiration );
